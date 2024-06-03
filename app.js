@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const userSchema = require('./userSchema');
-const { name } = require('ejs');
+// const { name } = require('ejs');
 // const { name } = require('ejs');
 
 app.get("/", (req, res) => {
@@ -15,12 +15,11 @@ app.get("/create", async (req, res) => {
         address: "Itahari",
         age: 19
     })
-
     res.send(create)
 })
 
 app.get("/update", async (req, res) =>{
-    let updateUser = await userSchema.findOneUpdate({username:"aayush"}, {name: "aayush pradhan"}, {address:"itahari"}, {age:19});
+    let updateUser = await userSchema.findOneAndUpdate({username:"aayush"}, {name: "aayush pradhan"}, {address:"itahari"}, {age:19});
     res.send(updateUser);
 })
 
