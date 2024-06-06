@@ -11,5 +11,9 @@ app.get("/", (req, res) => {
     res.send("Hey");
 })
 
+app.get("/", (req, res) => {
+    res.render("index");
+})
+
 const port = 3000;
 console.log(`port is running ${port}`);
