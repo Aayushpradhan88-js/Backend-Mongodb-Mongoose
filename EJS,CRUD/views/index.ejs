@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/crud/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1>Hey there everyone it's me aayush</h1>
+    <div class="w-full h-full bg-zinc-900 p-10 text-white">
+        <h1 class = "text-3xl tracking-tighter mb-8 mt-2">Create User</h1>
+        
+        <form action="/create" method="post">
+            <input class="px-5 py-2 border-2 bg-amber-950 outline-none" type="text" name="username" placeholder="Enter You Name">
+            <input class="px-5 py-2 border-2 bg-amber-950 outline-none" type="text" name="email"    placeholder="Enter Your Gmail">
+            <input class="px-5 py-2 border-2 bg-amber-950 outline-none" type="text" name="photo"    placeholder="Attach Your Photo URL">
+            <input class="px-5 py-2 text-white bg-blue-500 rounded-lg ml-3" type="Submit" value="Create User">
+        </form>
+
+        <div class="mt-6">
+            <a href="/read">Create Network</a>
+        </div>
+
+    </div>
 </body>
 </html>
