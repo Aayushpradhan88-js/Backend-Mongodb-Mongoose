@@ -7,4 +7,4 @@ let userdatas = mongoose.Schema({
     photo: URL
 })
 
-mongoose.exports = mongoose.model("user", userdatas);
+module.exports = mongoose.model("user", userdatas);
