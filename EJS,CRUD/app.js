@@ -18,13 +18,21 @@ app.get("/home", (req, res) => {
 })
 
 //This route is for the existing user details
-app.get("/read", (req, res) => {
+app.get("/read", async(req, res) => {
+    let users = await userModel.find();
     res.render("read");
 })
 
 //This route is for taking user details and making profile in realtime it inclued - name, email and photo
-app.post("/create", (req, res) => {
-    res.render("read");
+app.post("/create", async (req, res) => {
+    let {username, email, photo}  = req.body;
+    let userData = await userModel.create({
+        username: username, 
+        email: email, 
+        photo: photo
+    })
+
+    res.send(userData);
 })
 
 const port = 3000;

@@ -12,16 +12,20 @@
         <h1 class = "text-3xl tracking-tighter mb-3">Existing Users </h1>
 
         <div class="users flex gap-3 flex-wrap">
-            <div class="user w-72 p-4 bg-blue-950 rounded-lg">
-                <div class="w-full h-52 bg-zinc-500 rounded-lg"></div>
-                <h3 class="text-2xl mt-3 tracking-tighter">Sita Pradhan</h3>
-                <h4 class="text-zinc-500">sita@gmail.com</h4>
-
-                <div class="flex gap-3 mt-10">
-                    <a class="text-zinc-500">Edit</a>
-                    <a class="text-red-500">Delete</a>
+            <% users.forEach(function(user){ %>
+                <div class="user w-72 p-4 bg-blue-950 rounded-lg">
+                    <div class="w-full h-52 bg-zinc-500 rounded-lg overflow-hidden">
+                        <img clss="w-full h-52 object-cover"  src="<%= user.photo %>" alt="">
+                    </div>
+                    <h3 class="text-2xl mt-3 tracking-tighter"> <%= user.username %> </h3>
+                    <h4 class="text-zinc-500"> <%= user.email %> </h4>
+    
+                    <div class="flex gap-3 mt-10">
+                        <a class="text-zinc-500">Edit</a>
+                        <a class="text-red-500">Delete</a>
+                    </div>
                 </div>
-            </div>
+            <% }) %>
         </div>
         
         //This is the div wherer we can go to the webapp home page.
