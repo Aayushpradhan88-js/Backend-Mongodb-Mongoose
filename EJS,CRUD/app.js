@@ -28,8 +28,8 @@ app.post("/create", async (req, res) => {
     let {username, email, photo}  = req.body;
     let userData = await userModel.create({
         username: username, 
-        email: email, 
-        photo: photo
+        email: email,
+        images: images
     })
 
     res.send(userData);
