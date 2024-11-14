@@ -43,11 +43,8 @@ app.get("/update", async (req, res) => {
 
 //In this method we can delete the user  from the database.
 app.get("/delete", async (req, res) => {
-
     let userDelete = await userModel.fineOneAndDelete({ name: "Aayush" });
-
     res.send(userDelete);
-
 })
 
 const port = 3000;
