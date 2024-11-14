@@ -6,6 +6,7 @@ app.get("/", (req, res) => {
     res.send("Hey my name is aayush pradhan");
 })
 
+// It will create a user data with it's details
 app.get("/create", async (req, res) => {
     let create = await userModel.create({
         username: "Aayush",
@@ -21,8 +22,14 @@ app.get("/create", async (req, res) => {
 //In this method we can read the how many user are there in the database.
 app.get("/read", async (req, res) => {
 
-    // find gives an array and findOne gives an object.
-    let userRead = await userModel.find();
+    // .find( ) -- It find all the existing user data and save in the database
+    // let userRead = await userModel.find();
+
+    // find({ name: ' Aayush Pradhan '}) -- if we give the particular user name then it will find the particular user details
+    // let userRead = await userModel.find({name:'Ayush Pradhan'});
+
+    // findOne -- It find the only one user data. if there is one user with different data then also it will find and give one userdata.
+    let userRead = await userModel.findOne({ name: 'Ayush Pradhan' });
 
     res.send(userRead);
 
@@ -30,14 +37,8 @@ app.get("/read", async (req, res) => {
 
 //In this method we can update the user details.
 app.get("/update", async (req, res) => {
-    let updateUser = await userModel.findOneAndUpdate(
-        { username: "aayush" },
-        { name: "aayush pradhan" },
-        { address: "itahari" },
-        { age: 19 });
-
-    res.send(updateUser);
-
+    let updatedUser = await userModel.findOneAndUpdate({ name: 'Ayush' }, { name: 'aayush' }, { new: true });
+    req.send(updatedUser);
 })
 
 //In this method we can delete the user  from the database.
